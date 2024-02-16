@@ -2,7 +2,7 @@
     <header class="py-3 border-b">
         <nav class="container mx-auto flex flex-col md:flex-row md:justify-between md:items-center gap-2">
             <Link :href="route('listings.index')" class="font-semibold">Listings</Link>
-            <Link :href="route('home')" class="font-bold text-2xl text-indigo-600">Larazillow</Link>
+            <Link :href="route('home')" class="font-bold text-2xl text-indigo-600">Living Listings</Link>
 
             <div v-if="page.props.user" class="flex flex-col md:flex-row md:items-center gap-1">
                 <Link class="btn-transparent" :class="{'bg-orange-300':page.props.notifications_count}" :href="route('notifications.index')"><i class="fa-regular fa-bell"></i> <span v-if="page.props.notifications_count">({{page.props.notifications_count}})</span></Link>
