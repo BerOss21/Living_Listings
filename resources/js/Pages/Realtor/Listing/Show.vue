@@ -25,11 +25,7 @@
                 <template #title>
                     Monthly Payment
                 </template>
-                
-                <div class="mt-1">
-                    <h3 class="font-bold text-gray-600 mb-1">Intereset rate ({{ interset_rate }})</h3>
-                    <input type="range" v-model="interset_rate" min="0.1" max="2.5" step="0.1" class="appearance-none cursor-pointer h-4 accent-indigo-400 bg-gray-200 rounded-lg w-full focus:accent-indigo-500" >
-                </div>
+            
                 <div class="mt-1">
                     <h3 class="font-bold text-gray-600 mb-1">Duration ({{ duration }} years)</h3>
                     <input type="range" v-model="duration" min="2" max="25" step="1" class="appearance-none cursor-pointer h-4 accent-indigo-400 bg-gray-200 rounded-lg w-full focus:accent-indigo-500" >
@@ -42,19 +38,14 @@
 
                 <div class="mt-3">
                     <div class="flex justify-between">
-                        <h4>Total payed</h4>
+                        <h4>Total</h4>
                         <Price :price="totalPayed"/>
                     </div>
 
-                    <div class="flex justify-between">
+                    <!-- <div class="flex justify-between">
                         <h4>Principal payed</h4>
                         <Price :price="amount"/>
-                    </div>
-
-                    <div class="flex justify-between">
-                        <h4>Interest payed</h4>
-                        <Price :price="interestPayed"/>
-                    </div>
+                    </div> -->     
                 </div>
             </box> 
         </div>     
@@ -75,11 +66,10 @@
         listing:Object
     })
 
-    const interset_rate=ref(2.5);
     const duration=ref(25);
 
     const amount=ref(props.listing.price);
 
-    const {monthlyPayment, totalPayed, interestPayed} =payment(amount,interset_rate,duration)
+    const {monthlyPayment, totalPayed} =payment(amount,duration)
 
 </script>
